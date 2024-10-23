@@ -6,10 +6,8 @@ use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('master');
 });
-
-
 
 Route::resource('categories', CategoryController::class);
 Route::resource('subcategories', SubcategoryController::class);
