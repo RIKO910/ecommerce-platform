@@ -1,4 +1,4 @@
-# Project Name
+# ecommerce-platform
 
 Brief description of the project.
 
@@ -8,9 +8,7 @@ Make sure you have the following installed:
 
 - PHP >= 8.0
 - Composer
-- Laravel >= 9.x
-- MySQL or another database system (if applicable)
-- Node.js (for frontend assets)
+- MySQL
 - NPM or Yarn
 
 ## Installation
