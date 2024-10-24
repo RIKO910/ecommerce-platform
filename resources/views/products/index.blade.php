@@ -24,16 +24,16 @@
             <tbody>
             @foreach($products as $product)
                 <tr>
-                    <td class="px-4 py-2 border-b">{{ $product->name }}</td>
-                    <td class="px-4 py-2 border-b">${{ $product->new_price }}</td>
-                    <td class="px-4 py-2 border-b">{{ $product->subcategory->name }}</td>
-                    <td class="px-4 py-2 border-b">
+                    <td class="px-4 py-2 text-center border-b">{{ $product->name }}</td>
+                    <td class="px-4 py-2 text-center border-b">${{ $product->new_price }}</td>
+                    <td class="px-4 py-2 text-center border-b">{{ $product->subcategory->name }}</td>
+                    <td class="px-4 py-2 flex justify-center border-b">
                         <a href="{{ route('products.edit', $product->id) }}" class="bg-blue-500 text-white py-1 px-2 rounded">Edit</a>
-                        <a href="{{ route('products.show', $product->id) }}" class="bg-blue-500 text-white py-1 px-2 rounded">Show</a>
+                        <a href="{{ route('products.show', $product->id) }}" class="bg-blue-500 mx-4 text-white py-1 px-2 rounded">Show</a>
                         <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="inline-block">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="bg-red-500 text-white py-1 px-2 rounded" onclick="return confirm('Are you sure?')">Delete</button>
+                            <button type="submit" class="bg-red-500 text-white py-1 px-2  rounded" onclick="return confirm('Are you sure?')">Delete</button>
                         </form>
                     </td>
                 </tr>

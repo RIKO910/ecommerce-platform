@@ -24,11 +24,11 @@
             <tbody>
             @foreach($subcategories as $subcategory)
                 <tr>
-                    <td class="px-4 py-2 border-b">{{ $subcategory->name }}</td>
-                    <td class="px-4 py-2 border-b">{{ $subcategory->slug }}</td>
-                    <td class="px-4 py-2 border-b">{{ $subcategory->category->name }}</td>
-                    <td class="px-4 py-2 border-b">
-                        <a href="{{ route('subcategories.edit', $subcategory->id) }}" class="bg-blue-500 text-white py-1 px-2 rounded">Edit</a>
+                    <td class="px-4 py-2 text-center border-b">{{ $subcategory->name }}</td>
+                    <td class="px-4 py-2 text-center border-b">{{ $subcategory->slug }}</td>
+                    <td class="px-4 py-2 text-center border-b">{{ $subcategory->category->name }}</td>
+                    <td class="px-4 py-2 flex justify-center border-b">
+                        <a href="{{ route('subcategories.edit', $subcategory->id) }}" class="bg-blue-500 text-white py-1 px-2 mx-4 rounded">Edit</a>
                         <form action="{{ route('subcategories.destroy', $subcategory->id) }}" method="POST" class="inline-block">
                             @csrf
                             @method('DELETE')
