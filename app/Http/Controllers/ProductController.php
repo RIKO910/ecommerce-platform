@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('subcategory')->get();
+        $products      = Product::with('subcategory')->get();
         return view('products.index', compact('products'));
     }
 
@@ -23,19 +24,15 @@ class ProductController extends Controller
      */
     public function productView()
     {
-        $products = Product::with('subcategory')->get();
-        return view('home', compact('products'));
+        $products      = Product::with('subcategory')->get();
+        $categories    = Category::with('subcategories')->get();
+        return view('home', compact('products', 'categories'));
     }
 
     public function showBySubcategory($slug)
     {
-        // Find the subcategory by slug
         $subcategory = Subcategory::where('slug', $slug)->firstOrFail();
-
-        // Fetch all products under this subcategory
-        $products = Product::where('subcategory_id', $subcategory->id)->get();
-
-        // Pass the subcategory and products to the view
+        $products    = Product::where('subcategory_id', $subcategory->id)->get();
         return view('products.bySubcategory', compact('subcategory', 'products'));
     }
 
