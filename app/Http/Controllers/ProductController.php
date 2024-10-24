@@ -19,6 +19,27 @@ class ProductController extends Controller
     }
 
     /**
+     * Display all products.
+     */
+    public function productView()
+    {
+        $products = Product::with('subcategory')->get();
+        return view('home', compact('products'));
+    }
+
+    public function showBySubcategory($slug)
+    {
+        // Find the subcategory by slug
+        $subcategory = Subcategory::where('slug', $slug)->firstOrFail();
+
+        // Fetch all products under this subcategory
+        $products = Product::where('subcategory_id', $subcategory->id)->get();
+
+        // Pass the subcategory and products to the view
+        return view('products.bySubcategory', compact('subcategory', 'products'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()

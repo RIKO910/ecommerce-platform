@@ -1,7 +1,7 @@
 <nav class="bg-white shadow">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 justify-between">
-
+            <a href="{{route('home')}}" class="inline-flex items-center font-bold px-1 pt-1 text-sm  hover:text-gray-700">Home</a>
             <div class="flex flex-1 items-center justify-center sm:items-stretch">
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                     <a href="{{route('categories.index')}}" class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Category</a>
